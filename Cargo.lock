@@ -594,8 +594,7 @@ dependencies = [
 name = "live-view-chat-app"
 version = "0.1.0"
 dependencies = [
- "lunatic 0.11.4",
- "maud-live-view",
+ "lunatic",
  "serde",
  "serde_json",
  "submillisecond",
@@ -613,26 +612,12 @@ dependencies = [
 
 [[package]]
 name = "lunatic"
-version = "0.10.6"
+version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dbb5cb5f8c3597fb08fdacc13ee41f24effbc0a1988262d122b5f52ecbef74ed"
+checksum = "ca28bf24e13d6a921a4309768ac98efbbec1c3cb47f53b103af6e452d4370f09"
 dependencies = [
  "bincode",
- "lunatic-macros 0.10.1",
- "lunatic-test",
- "paste",
- "serde",
- "thiserror",
-]
-
-[[package]]
-name = "lunatic"
-version = "0.11.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "946d5710624fc8007c58d16c31da9a5db80169e180b20a3901a2af4dd71884a7"
-dependencies = [
- "bincode",
- "lunatic-macros 0.11.4",
+ "lunatic-macros",
  "lunatic-test",
  "paste",
  "serde",
@@ -642,33 +627,21 @@ dependencies = [
 
 [[package]]
 name = "lunatic-log"
-version = "0.2.3"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0bd0e6b9668f7ca76a6babfb56cc868421187ea39ed9fb9db5d886316b145090"
+checksum = "b108cab8f10da677082ad72c35b6824ddecd533fdbc54960f247cbfcdfca648d"
 dependencies = [
  "ansi_term",
  "chrono",
- "lunatic 0.10.6",
+ "lunatic",
  "serde",
 ]
 
 [[package]]
 name = "lunatic-macros"
-version = "0.10.1"
+version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3582d2d733790f704f1a537f8f80d531c2d42d9717ef3c64e3acedb309115d51"
-dependencies = [
- "convert_case",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "lunatic-macros"
-version = "0.11.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32f9b31b098de4c99a9f85d30735367d05d5ce0f84cb796f6a5792b4bb8b3a09"
+checksum = "52122f17e685be82d3d938558b4f827ac0a1140adc39183af7a390298d79fd03"
 dependencies = [
  "convert_case",
  "proc-macro2",
@@ -678,9 +651,9 @@ dependencies = [
 
 [[package]]
 name = "lunatic-test"
-version = "0.10.1"
+version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1ed5beab4ac9e9b0ba97b7139de06ca173bb21718141152c0133b46d4100665"
+checksum = "2baee76cce00a0c693983edd92fafc4bede7c4756e1e2a9346c03b77a22fbc1a"
 dependencies = [
  "quote",
  "syn",
@@ -688,9 +661,9 @@ dependencies = [
 
 [[package]]
 name = "maud-live-view"
-version = "0.24.1"
+version = "0.24.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e21ac03738583e4107ee220df31092791152df4773ffcdf4e97f2e05d8b242c"
+checksum = "f3217cc9c07e20b3259d831ca23487bda119b44c12084b3d266e60bf7ed55d3c"
 dependencies = [
  "itoa",
  "maud-live-view-macros",
@@ -698,9 +671,9 @@ dependencies = [
 
 [[package]]
 name = "maud-live-view-macros"
-version = "0.24.1"
+version = "0.24.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "324cfce850cfe5aac00717cfb26ce2495f8195ad79d7eabf6d47549e6cdc5a59"
+checksum = "c45bd1fb23ba1fbdd31a53aaca2a750db94b7ec16a1e1856c8c697ad30f3150b"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
@@ -989,17 +962,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sha-1"
-version = "0.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "028f48d513f9678cda28f6e4064755b3fbb2af6acd672f2c209b62323f7aea0f"
-dependencies = [
- "cfg-if",
- "cpufeatures",
- "digest",
-]
-
-[[package]]
 name = "sha1"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1032,9 +994,9 @@ dependencies = [
 
 [[package]]
 name = "submillisecond"
-version = "0.2.0-beta0"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "997c18efe929e14e3bc503f38ecf24f4216959d1bc8867749b052dfc77551c07"
+checksum = "049f23a18319d7f2fd00a61a81b349324edb2d0678c36efc5289dcf1c121431b"
 dependencies = [
  "ansi_term",
  "base64ct",
@@ -1042,7 +1004,7 @@ dependencies = [
  "headers",
  "http",
  "httparse",
- "lunatic 0.11.4",
+ "lunatic",
  "lunatic-log",
  "mime",
  "paste",
@@ -1057,9 +1019,9 @@ dependencies = [
 
 [[package]]
 name = "submillisecond-live-view"
-version = "0.1.0"
+version = "0.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ceefddf2e25b3541ddd8c19ff3b0443255f4ddac76bddef86880d20bdf747cc"
+checksum = "9bd5685f8461a7c36b340455e31233f73a0dfa6ed7c34749da788f5700bb0c5c"
 dependencies = [
  "base64",
  "const-random",
@@ -1067,7 +1029,7 @@ dependencies = [
  "hmac",
  "itertools",
  "jwt",
- "lunatic 0.11.4",
+ "lunatic",
  "lunatic-log",
  "maud-live-view",
  "pretty_assertions",
@@ -1084,9 +1046,9 @@ dependencies = [
 
 [[package]]
 name = "submillisecond_macros"
-version = "0.2.1"
+version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8b56d6224bd5c4726d9e8f4705027c5af4297bb95363866badd5934a116812c7"
+checksum = "16f2ab3d83196b73751d1c8340dba2c6dc0b7ce1e3538fa9401f891756465a9f"
 dependencies = [
  "better-bae",
  "lazy_static",
@@ -1210,9 +1172,9 @@ checksum = "cda74da7e1a664f795bb1f8a87ec406fb89a02522cf6e50620d016add6dbbf5c"
 
 [[package]]
 name = "tungstenite"
-version = "0.17.3"
+version = "0.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e27992fd6a8c29ee7eef28fc78349aa244134e10ad447ce3b9f0ac0ed0fa4ce0"
+checksum = "30ee6ab729cd4cf0fd55218530c4522ed30b7b6081752839b68fcec8d0960788"
 dependencies = [
  "base64",
  "byteorder",
@@ -1221,7 +1183,7 @@ dependencies = [
  "httparse",
  "log",
  "rand",
- "sha-1",
+ "sha1",
  "thiserror",
  "url",
  "utf-8",
