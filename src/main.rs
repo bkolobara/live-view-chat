@@ -1,17 +1,22 @@
 mod broadcaster;
 mod users;
 
-use broadcaster::{Broadcast, Broadcaster, BroadcasterHandler};
-use lunatic::process::{ProcessRef, StartProcess};
+use broadcaster::{Broadcast, Broadcaster, BroadcasterMessages};
+use lunatic::ap::ProcessRef;
+use lunatic::AbstractProcess;
 use serde::{Deserialize, Serialize};
 use submillisecond::http::Uri;
 use submillisecond::{router, static_router, Application};
 use submillisecond_live_view::prelude::*;
-use users::{Users, UsersHandler};
+use users::{Users, UsersRequests};
 
 fn main() -> std::io::Result<()> {
-    Broadcaster::start_link((), Some("broadcaster"));
-    Users::start_link((), Some("usernames"));
+    Broadcaster::link()
+        .start_as(&"broadcaster".to_string(), ())
+        .unwrap();
+    Users::link()
+        .start_as(&"usernames".to_string(), ())
+        .unwrap();
     Application::new(router! {
         "/" => Chat::handler()
         "/static" => static_router!("./static")
@@ -54,13 +59,11 @@ impl LiveView for Chat {
         let (name, color) = if socket.is_some() {
             // Mount is also called on the first render too, but we want to only look up names for
             // live view connections.
-            broadcaster = Some(ProcessRef::<Broadcaster>::lookup("broadcaster").unwrap());
-            broadcaster
-                .as_ref()
-                .unwrap()
-                .subscribe(socket.unwrap().clone());
+            broadcaster =
+                Some(ProcessRef::<Broadcaster>::lookup(&"broadcaster".to_string()).unwrap());
+            broadcaster.as_ref().unwrap().subscribe(socket.unwrap());
 
-            let users: ProcessRef<Users> = ProcessRef::lookup("usernames").unwrap();
+            let users: ProcessRef<Users> = ProcessRef::lookup(&"usernames".to_string()).unwrap();
             users.get_user()
         } else {
             ("unknown".to_owned(), "black".to_owned())

@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-lunatic = "0.12"
+lunatic = "0.13"
 submillisecond = "0.3"
 submillisecond-live-view = "0.3"
 serde = "1.0"

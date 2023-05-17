@@ -224,6 +224,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fb4a24b1aaf0fd0ce8b45161144d6f42cd91677fd5940fd431183eb023b3a2b8"
 
 [[package]]
+name = "convert_case"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec182b0ca2f35d8fc196cf3404988fd8b8c739a4d270ff118a398feb0cbec1ca"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
 name = "cookie"
 version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -331,6 +340,41 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "309e4fb93eed90e1e14bea0da16b209f81813ba9fc7830c20ed151dd7bc0a4d7"
 dependencies = [
  "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "darling"
+version = "0.14.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7b750cb3417fd1b327431a470f388520309479ab0bf5e323505daf0290cd3850"
+dependencies = [
+ "darling_core",
+ "darling_macro",
+]
+
+[[package]]
+name = "darling_core"
+version = "0.14.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "109c1ca6e6b7f82cc233a97004ea8ed7ca123a9af07a8230878fcfda9b158bf0"
+dependencies = [
+ "fnv",
+ "ident_case",
+ "proc-macro2",
+ "quote",
+ "strsim",
+ "syn",
+]
+
+[[package]]
+name = "darling_macro"
+version = "0.14.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a4aab4dbc9f7611d8b55048a3a16d2d010c2c8334e46304b40ac1cc14bf3b48e"
+dependencies = [
+ "darling_core",
  "quote",
  "syn",
 ]
@@ -512,6 +556,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "ident_case"
+version = "1.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
+
+[[package]]
 name = "idna"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -594,7 +644,7 @@ dependencies = [
 name = "live-view-chat-app"
 version = "0.1.0"
 dependencies = [
- "lunatic",
+ "lunatic 0.13.1",
  "serde",
  "serde_json",
  "submillisecond",
@@ -617,11 +667,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ca28bf24e13d6a921a4309768ac98efbbec1c3cb47f53b103af6e452d4370f09"
 dependencies = [
  "bincode",
- "lunatic-macros",
- "lunatic-test",
+ "lunatic-macros 0.12.0",
+ "lunatic-test 0.12.0",
  "paste",
  "serde",
  "serde_json",
+ "thiserror",
+]
+
+[[package]]
+name = "lunatic"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0a81de8cce7e1b8185afdf1ebeef5bfce009b06f8d0b7527d3baddc7f81f0487"
+dependencies = [
+ "bincode",
+ "lunatic-macros 0.13.0",
+ "lunatic-sys",
+ "lunatic-test 0.13.0",
+ "paste",
+ "rustversion",
+ "serde",
  "thiserror",
 ]
 
@@ -633,7 +699,7 @@ checksum = "b108cab8f10da677082ad72c35b6824ddecd533fdbc54960f247cbfcdfca648d"
 dependencies = [
  "ansi_term",
  "chrono",
- "lunatic",
+ "lunatic 0.12.1",
  "serde",
 ]
 
@@ -643,17 +709,46 @@ version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "52122f17e685be82d3d938558b4f827ac0a1140adc39183af7a390298d79fd03"
 dependencies = [
- "convert_case",
+ "convert_case 0.5.0",
  "proc-macro2",
  "quote",
  "syn",
 ]
 
 [[package]]
+name = "lunatic-macros"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5a7ddb2dbdcd909a3f9667b3616d7dc103eea47a641bca1d3bb6fe11b915b798"
+dependencies = [
+ "convert_case 0.6.0",
+ "darling",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "lunatic-sys"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "20b8b9023c9664595f6cff816a711beec4e9f50d25ce6ed31eb2465a8232a435"
+
+[[package]]
 name = "lunatic-test"
 version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2baee76cce00a0c693983edd92fafc4bede7c4756e1e2a9346c03b77a22fbc1a"
+dependencies = [
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "lunatic-test"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "31e0c9aa5a17dba90ef8685013d28589d54f04b028f9b3f58c3223e8bf00827d"
 dependencies = [
  "quote",
  "syn",
@@ -899,6 +994,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustversion"
+version = "1.0.12"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f3208ce4d8448b3f3e7d168a73f5e0c43a61e32930de3bceeccedb388b6bf06"
+
+[[package]]
 name = "ryu"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -993,6 +1094,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "strsim"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73473c0e59e6d5812c5dfe2a064a6444949f089e20eec9a2e5506596494e4623"
+
+[[package]]
 name = "submillisecond"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1004,7 +1111,7 @@ dependencies = [
  "headers",
  "http",
  "httparse",
- "lunatic",
+ "lunatic 0.12.1",
  "lunatic-log",
  "mime",
  "paste",
@@ -1029,7 +1136,7 @@ dependencies = [
  "hmac",
  "itertools",
  "jwt",
- "lunatic",
+ "lunatic 0.12.1",
  "lunatic-log",
  "maud-live-view",
  "pretty_assertions",
@@ -1224,6 +1331,12 @@ checksum = "5c5713f0fc4b5db668a2ac63cdb7bb4469d8c9fed047b1d0292cc7b0ce2ba921"
 dependencies = [
  "tinyvec",
 ]
+
+[[package]]
+name = "unicode-segmentation"
+version = "1.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1dd624098567895118886609431a7c3b8f516e41d30e0643f03d94592a147e36"
 
 [[package]]
 name = "unicode-width"

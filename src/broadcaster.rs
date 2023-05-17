@@ -1,4 +1,4 @@
-use lunatic::{abstract_process, process::ProcessRef};
+use lunatic::{abstract_process, ap::Config};
 use serde::{Deserialize, Serialize};
 use submillisecond_live_view::socket::Socket;
 
@@ -10,8 +10,8 @@ pub struct Broadcaster(Vec<Socket>);
 #[abstract_process(visibility = pub)]
 impl Broadcaster {
     #[init]
-    fn init(_: ProcessRef<Self>, _: ()) -> Self {
-        Self(vec![])
+    fn init(_: Config<Self>, _: ()) -> Result<Self, ()> {
+        Ok(Self(vec![]))
     }
 
     #[handle_message]
